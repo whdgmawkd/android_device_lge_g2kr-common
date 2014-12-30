@@ -42,7 +42,7 @@ BOARD_MKBOOTIMG_ARGS  := --ramdisk_offset 0x05000000 --tags_offset 0x04800000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 
-BOARD_CUSTOM_BOOTIMG_MK := device/lge/g2-common/releasetools/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/lge/g2kr-common/releasetools/mkbootimg.mk
 TARGET_KERNEL_SOURCE := kernel/lge/msm8974
 
 BOARD_USES_ALSA_AUDIO:= true
@@ -56,13 +56,12 @@ WPA_SUPPLICANT_VERSION      := VER_0_8_X
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_HOSTAPD_DRIVER        := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_bcmdhd
-BOARD_NO_WIFI_HAL           := true
 BOARD_WLAN_DEVICE           := bcmdhd
 WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/bcmdhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA     := "/system/etc/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP      := "/system/etc/firmware/fw_bcmdhd_apsta.bin"
 
-BOARD_EGL_CFG := device/lge/g2-common/egl.cfg
+BOARD_EGL_CFG := device/lge/g2kr-common/egl.cfg
 
 USE_OPENGL_RENDERER := true
 TARGET_USES_ION := true
@@ -82,7 +81,7 @@ TARGET_USES_QCOM_COMPRESSED_AUDIO := true
 BOARD_HAVE_LOW_LATENCY_AUDIO := true
 
 RECOVERY_FSTAB_VERSION = 2
-TARGET_RECOVERY_FSTAB = device/lge/g2-common/fstab.g2
+TARGET_RECOVERY_FSTAB = device/lge/g2kr-common/fstab.g2
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 ENABLE_LOKI_RECOVERY := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
@@ -99,25 +98,25 @@ BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/g2-common/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := device/lge/g2-common/bluetooth/vnd_g2.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/g2kr-common/bluetooth
+BOARD_BLUEDROID_VENDOR_CONF := device/lge/g2kr-common/bluetooth/vnd_g2.txt
 
 # GPS
 TARGET_NO_RPC := true
 
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
-BOARD_HARDWARE_CLASS := device/lge/g2-common/cmhw/
+BOARD_HARDWARE_CLASS := device/lge/g2kr-common/cmhw/
 
 # SELinux policies
 # qcom sepolicy
 include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-        device/lge/g2-common/sepolicy
+        device/lge/g2kr-common/sepolicy
 
-BOARD_RIL_CLASS := ../../../device/lge/g2-common/ril/
-TARGET_RELEASETOOLS_EXTENSIONS := device/lge/g2-common/releasetools
+BOARD_RIL_CLASS := ../../../device/lge/g2kr-common/ril/
+TARGET_RELEASETOOLS_EXTENSIONS := device/lge/g2kr-common/releasetools
 
 COMMON_GLOBAL_CFLAGS += -DBOARD_CHARGING_CMDLINE_NAME='"androidboot.mode"' -DBOARD_CHARGING_CMDLINE_VALUE='"chargerlogo"'
 BOARD_USES_QC_TIME_SERVICES := true
@@ -138,6 +137,6 @@ NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
 TARGET_USES_LOGD := false
 
-TARGET_SPECIFIC_HEADER_PATH := device/lge/g2-common/include
+TARGET_SPECIFIC_HEADER_PATH := device/lge/g2kr-common/include
 
 BOARD_USES_LEGACY_MMAP := true

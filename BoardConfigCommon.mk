@@ -38,13 +38,15 @@ BOARD_MKBOOTIMG_ARGS  := --ramdisk_offset 0x05000000 --tags_offset 0x04800000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 BOARD_CUSTOM_BOOTIMG := true
-BOARD_CUSTOM_BOOTIMG_MK := device/lge/g2-common/releasetools/mkbootimg.mk
+BOARD_CUSTOM_BOOTIMG_MK := device/lge/g2kr-common/releasetools/mkbootimg.mk
 TARGET_KERNEL_SOURCE := kernel/lge/msm8974
 TARGET_KERNEL_ARCH := arm
 
 # Audio
 BOARD_USES_ALSA_AUDIO:= true
-AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
+#AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
+BOARD_HAVE_LOW_LATENCY_AUDIO  := true
+TARGET_USES_QCOM_COMPRESSED_AUDIO :=true
 
 
 # Wi-Fi
@@ -68,7 +70,7 @@ OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
 # EGL
-BOARD_EGL_CFG := device/lge/g2-common/configs/egl.cfg
+BOARD_EGL_CFG := device/lge/g2kr-common/configs/egl.cfg
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 
@@ -91,7 +93,7 @@ COMMON_GLOBAL_CFLAGS += -DLG_CAMERA_HARDWARE
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 
 RECOVERY_FSTAB_VERSION = 2
-TARGET_RECOVERY_FSTAB = device/lge/g2-common/rootdir/etc/fstab.g2
+TARGET_RECOVERY_FSTAB = device/lge/g2kr-common/rootdir/etc/fstab.g2
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_HAS_NO_SELECT_BUTTON := true
@@ -110,8 +112,8 @@ BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/g2-common/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := device/lge/g2-common/bluetooth/vnd_g2.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/g2kr-common/bluetooth
+BOARD_BLUEDROID_VENDOR_CONF := device/lge/g2kr-common/bluetooth/vnd_g2.txt
 
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
@@ -123,26 +125,26 @@ COMMON_GLOBAL_CFLAGS += \
     -DBOARD_CHARGING_CMDLINE_VALUE='"chargerlogo"'
 
 # CM Hardware
-BOARD_HARDWARE_CLASS := device/lge/g2-common/cmhw/
+BOARD_HARDWARE_CLASS := device/lge/g2kr-common/cmhw/
 
 # SELinux policies
 # QCOM sepolicy
 include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
-    device/lge/g2-common/sepolicy
+    device/lge/g2kr-common/sepolicy
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/lge/g2-common/ril/
+BOARD_RIL_CLASS := ../../../device/lge/g2kr-common/ril/
 TARGET_RELEASE_CPPFLAGS += -DNEEDS_LGE_RIL_SYMBOLS
 
-TARGET_RELEASETOOLS_EXTENSIONS := device/lge/g2-common/releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := device/lge/g2kr-common/releasetools
 
 # Qualcomm time
 BOARD_USES_QC_TIME_SERVICES := true
 
 # Device headers
-TARGET_SPECIFIC_HEADER_PATH := device/lge/g2-common/include
+TARGET_SPECIFIC_HEADER_PATH := device/lge/g2kr-common/include
 
 #Fix reboot when the screen is locked
 BOARD_NO_WIFI_HAL := true

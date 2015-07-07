@@ -96,8 +96,13 @@ PRODUCT_PACKAGES += \
     init.g2.usb.rc \
     init.qcom.sh \
     ueventd.g2.rc \
-    init.g2.sdcard.rc \
     fstab.g2
+
+# Device Unique Init
+ifneq ($(filter f320,$(TARGET_DEVICE)),)
+PRODUCT_PACKAGES += \
+    init.g2.sdcard.rc
+endif
 
 PRODUCT_PACKAGES += \
     libwpa_client \

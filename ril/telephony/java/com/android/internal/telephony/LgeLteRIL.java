@@ -65,6 +65,9 @@ public class LgeLteRIL extends RIL implements CommandsInterface {
     private final int RIL_INT_RADIO_ON_HTC = 13;
     private int mSetPreferredNetworkType = -1;
     private Message mPendingNetworkResponse;
+    
+    // Hack for Lollipop
+    private Message mPendingGetSimStatus;
 
     private boolean isGSM = false;
 
@@ -130,6 +133,28 @@ public class LgeLteRIL extends RIL implements CommandsInterface {
         send(rr);
     }
 
+    
+    /** Hack for Lollipop */
+    @override
+    public void
+    getIccCardStatus(Message result){
+      if(mState != RadioState.RADIO_ON){
+        mPendingGetSimStatus = result;
+      } else {
+        super.getIccCardStatus(result)'
+      }
+    }
+    
+    @override
+    protected void 
+    switchToRadioState(RadioState newState){
+      super.switchToRadioState(newState);
+      if(newState == RadioState.RADIO_ON && mPendingGetSimStatus != null){
+        super.getIccCardStatus(mPendingGetSimStatue);
+        mPendingGetSimStatus = null;
+      }
+    }
+    /** End of Hack */
     @Override
     public void
     iccIO (int command, int fileid, String path, int p1, int p2, int p3,

@@ -305,4 +305,10 @@
     <integer name="config_multiuserMaximumUsers">4</integer>
     <!--  Whether Multiuser UI should be shown -->
     <bool name="config_enableMultiUserUI">true</bool>
+    
+    <!-- Ambient Display -->
+    <string nme="config_sozeComponent">com.android.systemui.doze.DoseService</string>
+    <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
+    <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
+    
 </resources>

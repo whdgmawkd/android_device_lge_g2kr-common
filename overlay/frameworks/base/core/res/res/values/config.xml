@@ -307,7 +307,7 @@
     <bool name="config_enableMultiUserUI">true</bool>
     
     <!-- Ambient Display -->
-    <string nme="config_sozeComponent">com.android.systemui.doze.DoseService</string>
+    <string name="config_sozeComponent">com.android.systemui.doze.DoseService</string>
     <bool name="config_powerDecoupleAutoSuspendModeFromDisplay">true</bool>
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
     

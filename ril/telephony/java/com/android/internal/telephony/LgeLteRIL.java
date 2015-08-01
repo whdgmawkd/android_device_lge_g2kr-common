@@ -135,22 +135,22 @@ public class LgeLteRIL extends RIL implements CommandsInterface {
 
     
     /** Hack for Lollipop */
-    @override
+    @Override
     public void
     getIccCardStatus(Message result){
       if(mState != RadioState.RADIO_ON){
         mPendingGetSimStatus = result;
       } else {
-        super.getIccCardStatus(result)'
+        super.getIccCardStatus(result);
       }
     }
     
-    @override
+    @Override
     protected void 
     switchToRadioState(RadioState newState){
       super.switchToRadioState(newState);
       if(newState == RadioState.RADIO_ON && mPendingGetSimStatus != null){
-        super.getIccCardStatus(mPendingGetSimStatue);
+        super.getIccCardStatus(mPendingGetSimStatus);
         mPendingGetSimStatus = null;
       }
     }

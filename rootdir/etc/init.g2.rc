@@ -26,7 +26,6 @@
 #
 
 import init.g2.usb.rc
-import init.g2.sdcard.rc
 
 on early-init
     symlink /dev/diag_lge /dev/diag
@@ -426,6 +425,7 @@ on post-fs-data
     # Tap to wake
     chown system radio /sys/devices/virtual/input/lge_touch/touch_gesture
     chmod 0664 /sys/devices/virtual/input/lge_touch/touch_gesture
+    write /sys/devices/virtual/input/lge_touch/touch_gesture 1
 
 on charger
     trigger charger-fs
@@ -521,9 +521,9 @@ on property:init.svc.bootanim=stopped
     write /sys/module/cpu_boost/parameters/input_boost_freq 1497600
     write /sys/module/cpu_boost/parameters/input_boost_ms 40
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor msm-adreno-tz
-    write /dev/cpuctl/apps/cpu.notify_on_migrate 1
+    write /dev/cpuctl/cpu.notify_on_migrate 0
 
-    write /sys/block/mmcblk0/queue/scheduler row
+    setprop sys.io.scheduler bfq
     start mpdecision
 
 on property:init.svc.bootanim=running

@@ -524,7 +524,7 @@ on property:init.svc.bootanim=stopped
     write /sys/class/kgsl/kgsl-3d0/devfreq/governor msm-adreno-tz
     write /dev/cpuctl/cpu.notify_on_migrate 0
 
-    setprop sys.io.scheduler bfq
+    setprop sys.io.scheduler fiops
     start mpdecision
 
 on property:init.svc.bootanim=running

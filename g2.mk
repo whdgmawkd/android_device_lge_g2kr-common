@@ -121,6 +121,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     fstab.g2 \
     init.g2.rc \
+    init.g2.sdcard.rc \
     init.g2.power.rc \
     init.g2.usb.rc \
     init.recovery.g2.rc \

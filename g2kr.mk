@@ -125,7 +125,8 @@ PRODUCT_PACKAGES += \
     init.g2.usb.rc \
     init.recovery.g2.rc \
     set_baseband.sh \
-    ueventd.g2.rc
+    ueventd.g2.rc \
+    init.g2.sdcard.rc
 
 # IPv6 tethering
 PRODUCT_PACKAGES += \

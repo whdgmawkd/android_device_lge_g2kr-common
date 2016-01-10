@@ -27,7 +27,6 @@
 
 import init.g2.power.rc
 import init.g2.usb.rc
-import init.g2.sdcard.rc
 
 on early-init
     symlink /dev/diag_lge /dev/diag
@@ -51,27 +50,9 @@ on init
     mkdir /mpt 0755 system system
     mkdir /sns 0775 system system
 
-    # See storage config details at http://source.android.com/tech/storage/
-    mkdir /mnt/media_rw 0700 media_rw media_rw
-    mkdir /mnt/shell/emulated 0700 shell shell
-    mkdir /storage 0751 system sdcard_r
-    mkdir /storage/emulated 0555 root root
-
-    # USB storage
-    chmod 0701 /mnt/media_rw
-    mkdir /mnt/media_rw/usbdisk0 0700 media_rw media_rw
-    mkdir /storage/usbdisk0 0700 root root
-
-    export EXTERNAL_STORAGE /storage/emulated/legacy
-    export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
-    export EMULATED_STORAGE_TARGET /storage/emulated
-    export EXTERNAL_SORTAGE3 /storage/usbdisk0
-
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
-    symlink /mnt/shell/emulated/0 /storage/emulated/legacy
-    symlink /storage/usbdisk0 /storage/usb
 
 on fs
     mount_all ./fstab.g2
@@ -396,14 +377,6 @@ service rmt_storage /system/bin/rmt_storage
     class core
     user root
     group system
-
-# SD card
-service sdcard /system/bin/sdcard /data/media /mnt/shell/emulated 1023 1023
-    class late_start
-
-service fuse_usbdisk0 /system/bin/sdcard -u 1023 -g 1023 -w 1023 /mnt/media_rw/usbdisk0 /storage/usbdisk0
-    class late_start
-    disabled
 
 service sensors /system/bin/sensors.qcom
     class late_start

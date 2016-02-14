@@ -112,7 +112,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_RELEASETOOLS_EXTENSIONS := device/lge/g2kr-common/releasetools
 
 # RIL
-BOARD_RIL_CLASS += ../../../device/lge/g2-common/ril
+BOARD_RIL_CLASS += ../../../device/lge/g2kr-common/ril
 
 # SELinux policies
 include device/qcom/sepolicy/sepolicy.mk

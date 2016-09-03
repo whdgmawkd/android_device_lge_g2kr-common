@@ -11,7 +11,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.audiorec=false \
-    persist.audio.fluence.speaker=true \
+    persist.audio.fluence.speaker=false \
     persist.audio.fluence.voicecall=true \
     persist.audio.fluence.voicerec=false \
     ro.qc.sdk.audio.fluencetype=fluence
@@ -52,6 +52,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.gapless.enabled=true \
     audio.offload.pcm.16bit.enable=true \
     audio.offload.pcm.24bit.enable=true \
+    audio.offload.video=true \
     av.streaming.offload.enable=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -117,7 +118,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.qualcomm.sns.daemon=e \
     debug.qualcomm.sns.libsensor1=e \
     persist.debug.sensors.hal=e \
-    persist.debug.ar.hal=e
+    persist.debug.ar.hal=e \
+    persist.sys.ssr.enable_debug=0
 
 # Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
